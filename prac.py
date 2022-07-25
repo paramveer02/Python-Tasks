@@ -11,7 +11,7 @@ def radian_to_degree_converter(angle):
     return f"Angle in Degrees is: {angle * (180 / pi)}"
 
 
-# print(radian_to_degree_converter(2))
+print(radian_to_degree_converter(2))
 
 """
 # Task 2: Create a function in Python that accepts two parameters. The first will be a list of numbers. 
@@ -57,7 +57,7 @@ def vowels_finder(word):
     return f"New List but with dublicates: {new_list}"
 
 
-# print(vowels_finder(word="Paramveer Singh Marwah"))
+print(vowels_finder(word="Paramveer Singh Marwah"))
 
 # Remove dublicate items from the new list by converting it into a set and then back to list
 to_set = set(new_list)
