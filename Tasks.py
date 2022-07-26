@@ -8,6 +8,7 @@ The function should convert the radians into degrees and then return that value.
 
 
 def radian_to_degree_converter(angle):
+
     return f"Angle in Degrees is: {angle * (180 / pi)}"
 
 
@@ -23,6 +24,7 @@ If it's "desc," then the list should be in descending order, and if it's "none,"
 
 
 def list_sorter(num, st):
+
     if st == "asc":
         return sorted(num)
 
@@ -79,6 +81,7 @@ creditNum = input("Enter your Credit Card Number: ")
 
 
 def card_crypting():
+
     return creditNum[-4:].rjust(len(creditNum), "*")
 
 
@@ -119,6 +122,7 @@ The function should perform a calculation and return the results. For example, i
 
 
 def calculator(int1, operator, int2):
+
     if operator == "+":
         return f"operator = +, Result:{int1 + int2}"
     elif operator == "-" and int1 >= int2:
@@ -159,6 +163,7 @@ The function should return a list with only the integers in the original list in
 
 
 def int_list(l):
+
     newlist = [x for x in l if isinstance(x, int)]
     # or
     # for x in l:
@@ -177,6 +182,7 @@ If you send the function "now" as a parameter, it should return "nnooww," and if
 
 
 def str_double(var):
+
     obj = str()
 
     for char in var:
@@ -215,6 +221,7 @@ For example, calling capital_indexes("HeLlO") should return the list [0, 2, 4].
 
 
 def func(var):
+
     l = [x[0] for x in enumerate(var) if x[1].isupper()]
     return l
 
@@ -234,6 +241,7 @@ name = input("Please give in your first and last name, comma seperated: ")
 
 
 def func():
+
     name_list = name.split("; ")
     first_name, last_name = name_list
     print(f"First Name: {first_name}, Last Name: {last_name}")
@@ -248,6 +256,7 @@ l = [1, 2, 3, 4, 5]
 
 
 def format_converter(l):
+
     str_list = [str(x) for x in l]
     return " - ".join(str_list)
 
@@ -268,6 +277,7 @@ quotes = [
 
 
 def quote_extractor():
+
     quotes_extracted = [quote[1][1:-1].strip() for quote in enumerate(quotes)]
     # for x in enumerate(quotes):
     #     new_l.append(x[1][1:-1])
@@ -287,6 +297,7 @@ You can then tell them how many how many characters are in the text overall, and
 
 
 def word_clean(word):
+
     word = word.strip()
     return len(word)
 
@@ -297,6 +308,7 @@ text = input("Please write a random sentence: ")
 
 
 def word_count():
+
     print(f"Character Count: {len(text)}, Word Count: {len(text.split())}")
 
 
@@ -334,6 +346,7 @@ movie_count = int(input("How many movie you want to add: ".title()))
 
 
 def average_budget():
+
     for _ in range(movie_count):
         movie_name = input("Enter the Movie Name: ")
         movie_budget = int(input("Enter the Movie Budget: "))
@@ -358,6 +371,7 @@ def average_budget():
 
 # b) and c)
 def above_average_budget():
+
     avg_budget = average_budget()
     above_average_budget_list = [movie[0] for movie in movies if movie[1] > avg_budget]
 
@@ -388,6 +402,7 @@ If you make a mistake, you're usually eliminated from the game, and the game con
 
 
 def fizzBuzz():
+
     l = []
     for number in range(101):
         if number % 3 == 0:
@@ -426,6 +441,7 @@ target_number = random.randint(10, 15)
 
 
 def guessGame():
+
     guess = int(input("Guess a number between 1 and 100: "))
     while guess != target_number:
         if guess > target_number:
@@ -442,6 +458,7 @@ guessGame()
 
 
 def characterTracker(var):
+
     for char in var:
         if char != "o":
             print(char)
@@ -457,3 +474,160 @@ def characterTracker(var):
 
 
 characterTracker(var="Python")
+
+"""
+Task 17: To determine whether a given card number is valid or not using Luhn Algorithm.
+This algorithm is actually used in real-life applications to test credit or debit card numbers as well as SIM card serial numbers.
+
+Purpose of the Task: The purpose of the algorithm is to identify potentially mistyped numbers, 
+because it can determine whether or not it's possible for a given number to be the number for a valid card.
+
+What the Luhn Algorithm states:
+1. Remove the rightmost digit from the card number. This number is called the checking digit, and it will be excluded from most of our calculations.
+2. Reverse the order of the remaining digits.
+3. For this sequence of reversed digits, take the digits at each of the even indices (0, 2, 4, 6, etc.) and double them. If any of the results are greater than 9, 
+subtract 9 from those numbers.
+4. Add together all of the results and add the checking digit.
+5. If the result is divisible by 10, the number is a valid card number. If it's not, the card number is not valid.
+
+"""
+cardNum = list(input("Please enter your card number: ".strip()))
+
+processedDigits = []
+
+
+def credit_card_validator():
+
+    checkDigit = cardNum.pop()
+    cardNum.reverse()
+    print(cardNum)
+    for index, digit in enumerate(cardNum):
+        if index % 2 == 0:
+            doubleDigit = int(digit) * 2
+
+            if doubleDigit > 9:
+                doubleDigit = doubleDigit - 9
+            processedDigits.append(doubleDigit)
+        else:
+            processedDigits.append(int(digit))
+
+    total = int(checkDigit) + sum(processedDigits)
+    if total % 10 == 0:
+        return f"valid card number".title()
+    return f"invalid card number".title()
+
+
+print(credit_card_validator())
+
+"""
+Task 18: a) Inside the tuple we have the album name, the artist (in this case, the band), 
+the year of release, and then another tuple containing the track list.
+
+Convert this outer tuple to a dictionary with four keys.
+
+b) Iterate over the keys and values of the dictionary you create in exercise 1. 
+For each key and value, you should print the name of the key, and then the value alongside it.
+
+c) Delete the track list and year of release from the dictionary you created. 
+Once you've done this, add a new key to the dictionary to store the date of release. 
+The date of release for The Dark Side of the Moon was March 1st, 1973.
+
+d) Try to retrieve one of the values you deleted from the dictionary. 
+This should give you a KeyError. Once you've tried this, repeat the step using the get method to prevent the exception being raised.
+"""
+
+album = (
+    "The Dark Side of the Moon",
+    "Pink Floyd",
+    1973,
+    (
+        "Speak to Me",
+        "Breathe",
+        "On the Run",
+        "Time",
+        "The Great Gig in the Sky",
+        "Money",
+        "Us and Them",
+        "Any Colour You Like",
+        "Brain Damage",
+        "Eclipse",
+    ),
+)
+
+# create a list with a collection of required keys
+l = ["Album", "Band", "Year", "Tracks"]
+
+album_dict = {key: value for key, value in zip(l, album)}
+# print(album_dict["Tracks"])
+
+
+# for key, val in album_dict.items():
+#     print(f"Key: {key}, Value: {val}")
+
+del album_dict["Tracks"]
+# print(album_dict.get("Tracks"))
+# print(album_dict["Tracks"])
+album_dict["date of release".title()] = "March 1st, 1973"
+# print(album_dict)
+
+
+"""
+Task 19: For this project the application needs to have the following functionality:
+
+a) Users should be able to add a book to their reading list by providing a book title, an author's name, and a year of publication.
+b) The program should store information about all of these books in a Python list.
+c) Users should be able to display all the books in their reading list, and these books should be printed out in a user-friendly format.
+d) Users should be able to select these options from a text menu, and they should be able to perform multiple operations without restarting the program. 
+
+"""
+
+reading_list = []
+menu_prompt = """Please enter one of the following options:
+
+- 'a' to add a book
+- 'l' to list the books
+- 'q' to quit
+
+What would you like to do? """
+selected_option = input(menu_prompt)
+
+
+def add_book():
+    title = input("please enter the title: ".strip().title())
+    author = input("please enter the author: ".strip().title())
+    year = input("please enter the year of publication: ".strip().title())
+
+    book_keys = ["title", "author", "year"]
+    book_values = (title, author, year)
+
+    reading_list.append(
+        {
+            key: val
+            for key, val in zip(
+                book_keys,
+                book_values,
+            )
+        }
+    )
+    print(reading_list)
+
+
+def show_books():
+    for book in reading_list:
+        print(f"{book['title']}, by {book['author']} ({book['year']})")
+
+
+while selected_option != "q":
+    if selected_option == "a":
+        add_book()
+
+    elif selected_option == "l":
+        if reading_list:
+            show_books()
+        else:
+            print("yout reading list is empty".title())
+
+    else:
+        print("Invalid option selected")
+
+    selected_option = input(menu_prompt).strip().lower()
