@@ -558,17 +558,17 @@ album = (
 l = ["Album", "Band", "Year", "Tracks"]
 
 album_dict = {key: value for key, value in zip(l, album)}
-# print(album_dict["Tracks"])
+print(album_dict["Tracks"])
 
 
-# for key, val in album_dict.items():
-#     print(f"Key: {key}, Value: {val}")
+for key, val in album_dict.items():
+    print(f"Key: {key}, Value: {val}")
 
 del album_dict["Tracks"]
-# print(album_dict.get("Tracks"))
+print(album_dict.get("Tracks"))
 # print(album_dict["Tracks"])
 album_dict["date of release".title()] = "March 1st, 1973"
-# print(album_dict)
+print(album_dict)
 
 
 """
