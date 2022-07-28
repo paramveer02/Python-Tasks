@@ -631,3 +631,92 @@ while selected_option != "q":
         print("Invalid option selected")
 
     selected_option = input(menu_prompt).strip().lower()
+
+"""
+Task 20: 
+For this project the application needs to have the following functionality:
+
+1. Users should be able to add a book to their reading list by providing a book title, an author's name, and a year of publication.
+2. The program should store information about all of these books in a file called books.csv, and this data should be stored in CSV format.
+3. Users should be able to retrieve the books in their reading list, and these books should be printed out in a user-friendly format.
+4. Users should be able to search for a specific book by providing a book title.
+5. Users should be able to select these options from a text menu, and they should be able to perform multiple operations without restarting the program.
+"""
+
+
+def add_book():
+    title = input("Enter the book title: ".strip().title())
+    author = input("Enter the book author: ".strip().title())
+    year = input("Enter the year of publication: ".strip().title())
+
+    with open("books.csv", "a") as book_file:
+        book_file.write(f"{title},{author},{year}\n")
+
+
+def get_all_books():
+    books = []
+    with open("books.csv", "r") as get_book:
+        book_data = get_book.readlines()
+        for row in book_data:
+            values = row.strip().split(",")
+            headers = ("title", "author", "year")
+            books_dict = dict(
+                zip(headers, values)
+            )  # or implement dictionary comprehension
+            # books_dict = {key: val for key, val in zip(headers, values)}
+            books.append(books_dict)
+        return books
+
+
+def show_all_books(books):
+    print()  # generate an empty line
+    for book in books:
+        print(f"-> {book['title']}, by {book['author']}, published in {book['year']}")
+        print()
+
+
+def search_books():
+    all_books_list = get_all_books()
+    matched_books = []
+    search_term = input("Enter Book title you want to search: ".title()).strip().lower()
+    for book in all_books_list:
+        if search_term in book["title"].lower():
+            matched_books.append(book)
+    return matched_books
+
+
+menu_prompt = """ Please select one of the following options: 
+
+- 'a' to add a book
+- 'l' to list the book
+- 's' to search the book
+- 'q' to quit
+
+Please Select an Option:  
+"""
+
+selected_option = input(menu_prompt)
+
+
+while selected_option != "q":
+    if selected_option == "a":
+        add_book()
+
+    elif selected_option == "l":
+        list_of_books = get_all_books()
+        if list_of_books:
+            show_all_books(list_of_books)
+        else:
+            print("the reading list is empty".title())
+
+    elif selected_option == "s":
+        filtered_books = search_books()
+        if filtered_books:
+            show_all_books(filtered_books)
+        else:
+            print("Sorry, could not find the book")
+
+    else:
+        print(f"{selected_option} is an invalid option, try again!")
+
+    selected_option = input(menu_prompt)
