@@ -9,6 +9,7 @@ Idea is to increase the difficulty with every task and implement advanced python
 Focus on keeping the code short and precise.
 
 Formatting tool used: Black 
+
 Import sorting: organizeImports (json settings)
 
 * In Progress *
