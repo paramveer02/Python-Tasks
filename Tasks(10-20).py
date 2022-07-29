@@ -473,6 +473,14 @@ def search_books():
     return matched_books
 
 
+def delete_book():
+    all_books = get_all_books()
+    search_term = input("Delete book by author name: ".title()).strip().lower()
+    for book in all_books:
+        if search_term in book["author"].lower():
+            all_books.remove(book)
+
+
 menu_prompt = """ Please select one of the following options: 
 
 - 'a' to add a book
@@ -503,6 +511,9 @@ while selected_option != "q":
             show_all_books(filtered_books)
         else:
             print("Sorry, could not find the book")
+
+    elif selected_option == "d":
+        delete_book()
 
     else:
         print(f"{selected_option} is an invalid option, try again!")
