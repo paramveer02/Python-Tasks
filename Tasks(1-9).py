@@ -29,8 +29,11 @@ def list_sorter(num, st):
 
     elif st == "desc":
         return sorted(num, reverse=True)
-
-    return num
+    
+    elif st == "none":
+        return num
+    else:
+        return None
 
 
 # num_list = [10, 50, 20, 30, 60]
