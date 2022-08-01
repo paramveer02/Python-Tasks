@@ -58,8 +58,7 @@ def vowels_finder(word):
     #         new_list.append(x)
     # or
     new_list = [x for x in word if x in vowels]
-    to_set = set(new_list)
-    without_dublicates = list(to_set) # list without dublicate characters
+ 
     return f"New List but with dublicates: {new_list}"
 
 
