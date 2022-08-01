@@ -17,11 +17,12 @@ def func(var):
 print(func("pAramvEEr"))
 
 """
-# Task 11: a) Ask the user to enter their given name and surname in response to a single prompt. 
-# Use split to extract the names, and then assign each name to a different variable. 
-# For this exercise, you can assume that the user has a single given name and a single surname.
+Task 11: a) Ask the user to enter their given name and surname in response to a single prompt. 
 
-#11 b) Print the list, [1, 2, 3, 4, 5], in the format 1 | 2 | 3 | 4 | 5 using the join method. 
+Extract the names, and then assign each name to a different variable. 
+For this exercise, you can assume that the user has a single given name and a single surname.
+
+#11 b) Print the list, [1, 2, 3, 4, 5], in the format 1 | 2 | 3 | 4 | 5  
 """
 
 # a)
