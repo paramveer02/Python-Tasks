@@ -1,4 +1,6 @@
 import random
+from collections import Counter 
+
 
 """
 # Task 10: Write a function named capital_indexes. The function takes a single parameter, which is a string. 
@@ -99,6 +101,9 @@ text = input("Please write a random sentence: ")
 def word_count():
 
     print(f"Character Count: {len(text)}, Word Count: {len(text.split())}")
+    # or
+    word_count = Counter(text)
+    print(word_count)
 
 
 word_count()
