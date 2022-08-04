@@ -157,7 +157,7 @@ def search_books():
     return matched_books
 
 
-def delete_book():
+def delete_books():
     all_books = get_all_books()
     search_term = input("Delete book by author name: ".title()).strip().lower()
     for book in all_books:
@@ -197,7 +197,7 @@ while selected_option != "q":
             print("Sorry, could not find the book")
 
     elif selected_option == "d":
-        delete_book()
+        delete_books()
 
     else:
         print(f"{selected_option} is an invalid option, try again!")
