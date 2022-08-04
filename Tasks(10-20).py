@@ -1,4 +1,6 @@
 import random
+from collections import Counter 
+
 
 """
 # Task 10: Write a function named capital_indexes. The function takes a single parameter, which is a string. 
@@ -17,11 +19,12 @@ def func(var):
 print(func("pAramvEEr"))
 
 """
-# Task 11: a) Ask the user to enter their given name and surname in response to a single prompt. 
-# Use split to extract the names, and then assign each name to a different variable. 
-# For this exercise, you can assume that the user has a single given name and a single surname.
+Task 11: a) Ask the user to enter their given name and surname in response to a single prompt. 
 
-#11 b) Print the list, [1, 2, 3, 4, 5], in the format 1 | 2 | 3 | 4 | 5 using the join method. 
+Extract the names, and then assign each name to a different variable. 
+For this exercise, you can assume that the user has a single given name and a single surname.
+
+#11 b) Print the list, [1, 2, 3, 4, 5], in the format 1 | 2 | 3 | 4 | 5  
 """
 
 # a)
@@ -98,6 +101,9 @@ text = input("Please write a random sentence: ")
 def word_count():
 
     print(f"Character Count: {len(text)}, Word Count: {len(text.split())}")
+    # or
+    word_count = Counter(text)
+    print(word_count)
 
 
 word_count()
@@ -397,12 +403,12 @@ def add_book():
             )
         }
     )
-    print(reading_list)
 
 
 def show_books():
     for book in reading_list:
-        print(f"{book['title']}, by {book['author']} ({book['year']})")
+        title,author,year = books.value()
+        print(f"{title}, by {author} {year}")
 
 
 while selected_option != "q":

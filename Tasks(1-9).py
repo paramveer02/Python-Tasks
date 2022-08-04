@@ -29,8 +29,11 @@ def list_sorter(num, st):
 
     elif st == "desc":
         return sorted(num, reverse=True)
-
-    return num
+    
+    elif st == "none":
+        return num
+    else:
+        return None
 
 
 # num_list = [10, 50, 20, 30, 60]
@@ -45,7 +48,7 @@ In this function, only a, e, i, o, and u will be counted as vowels — not y.
 
 vowels = ["a", "e", "i", "o", "u"]
 
-new_list = []
+# new_list = []
 
 
 def vowels_finder(word):
@@ -55,6 +58,7 @@ def vowels_finder(word):
     #         new_list.append(x)
     # or
     new_list = [x for x in word if x in vowels]
+ 
     return f"New List but with dublicates: {new_list}"
 
 
