@@ -1,6 +1,5 @@
 import random
-from collections import Counter 
-
+from collections import Counter
 
 """
 # Task 10: Write a function named capital_indexes. The function takes a single parameter, which is a string. 
@@ -363,65 +362,3 @@ print(album_dict.get("Tracks"))
 # print(album_dict["Tracks"])
 album_dict["date of release".title()] = "March 1st, 1973"
 print(album_dict)
-
-
-"""
-Task 19: For this project the application needs to have the following functionality:
-
-a) Users should be able to add a book to their reading list by providing a book title, an author's name, and a year of publication.
-b) The program should store information about all of these books in a Python list.
-c) Users should be able to display all the books in their reading list, and these books should be printed out in a user-friendly format.
-d) Users should be able to select these options from a text menu, and they should be able to perform multiple operations without restarting the program. 
-
-"""
-
-reading_list = []
-menu_prompt = """Please enter one of the following options:
-
-- 'a' to add a book
-- 'l' to list the books
-- 'q' to quit
-
-What would you like to do? """
-selected_option = input(menu_prompt)
-
-
-def add_book():
-    title = input("please enter the title: ".strip().title())
-    author = input("please enter the author: ".strip().title())
-    year = input("please enter the year of publication: ".strip().title())
-
-    book_keys = ["title", "author", "year"]
-    book_values = (title, author, year)
-
-    reading_list.append(
-        {
-            key: val
-            for key, val in zip(
-                book_keys,
-                book_values,
-            )
-        }
-    )
-
-
-def show_books():
-    for book in reading_list:
-        title,author,year = books.value()
-        print(f"{title}, by {author} {year}")
-
-
-while selected_option != "q":
-    if selected_option == "a":
-        add_book()
-
-    elif selected_option == "l":
-        if reading_list:
-            show_books()
-        else:
-            print("yout reading list is empty".title())
-
-    else:
-        print("Invalid option selected")
-
-    selected_option = input(menu_prompt).strip().lower()

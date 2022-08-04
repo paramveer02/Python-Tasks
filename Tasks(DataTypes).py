@@ -29,7 +29,7 @@ def list_sorter(num, st):
 
     elif st == "desc":
         return sorted(num, reverse=True)
-    
+
     elif st == "none":
         return num
     else:
@@ -58,22 +58,22 @@ def vowels_finder(word):
     #         new_list.append(x)
     # or
     new_list = [x for x in word if x in vowels]
- 
+
     return f"New List but with dublicates: {new_list}"
 
 
 print(vowels_finder(word="Paramveer Singh Marwah"))
 
 # Remove dublicate items from the new list by converting it into a set and then back to list
-to_set = set(new_list)
-to_list = list(to_set)
-print("List without dublicates using set but unordered", to_list)
+#     to_set = set(new_list)
+#     to_list = list(to_set)
+#     print("List without dublicates using set but unordered", to_list)
 
-# OR
+# # OR
 
-to_dict = dict.fromkeys(new_list)
-to_unique_list = list(to_dict)
-print("List without dublicates using dict but ordered", to_unique_list)
+# to_dict = dict.fromkeys(new_list)
+# to_unique_list = list(to_dict)
+# print("List without dublicates using dict but ordered", to_unique_list)
 
 """
 # Task 4: Write a function in Python that accepts a credit card number. 
